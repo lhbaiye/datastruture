@@ -3,6 +3,7 @@ package org.example.daimasuixianglu.huisu;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -29,6 +30,7 @@ public class leet491 {
         if (temp.size() >= 2) {
             result.add(new ArrayList<>(temp));
         }
+        HashSet<Integer> hs = new HashSet<>();
         for (int i = index; i < nums.length; i++) {
             if (!temp.isEmpty() && nums[i] < temp.get(temp.size() - 1)) {
                 continue;

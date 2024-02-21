@@ -8,7 +8,7 @@ package org.example.daimasuixianglu.erchashu;
  * @date 2024/1/5 23:26:19
  */
 public class TreeNode {
-    int val;
+    public int val;
     public TreeNode left;
     public TreeNode right;
 

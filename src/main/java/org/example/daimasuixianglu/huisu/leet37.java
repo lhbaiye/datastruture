@@ -24,7 +24,7 @@ public class leet37 {
                         if (solveSudokuHelper(board)){
                             return true;
                         }
-                        board[i][j] = '.';
+                        // board[i][j] = '.';
                     }
                 }
                 return false;

@@ -12,11 +12,21 @@ import org.example.daimasuixianglu.erchashu.TreeNode;
 public class leet968 {
     int  res=0;
     public int minCameraCover(TreeNode root) {
-        // 对根节点的状态做检验,防止根节点是无覆盖状态 .
-        if(minCame(root)==0){
-            res++;
+        int[] res = dfs(root);
+        return Math.min(res[0], res[2]);
+    }
+
+    public int[] dfs(TreeNode root) {
+        if (root == null) {
+            return new int[]{Integer.MAX_VALUE / 2, 0, 0}; // 除 2 防止加法溢出
         }
-        return res;
+
+        int[] left = dfs(root.left);
+        int[] right = dfs(root.right);
+        int choose = Math.min(left[0], left[1]) + Math.min(right[0], right[1]) + 1;
+        int byFather = Math.min(left[0], left[2]) + Math.min(right[0], right[2]);
+        int byStudent = Math.min(Math.min(left[0] + right[2], left[2] + right[0]), left[0] + right[0]);
+        return new int[]{choose, byFather, byStudent};
     }
 
     /**
